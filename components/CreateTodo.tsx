@@ -11,6 +11,11 @@ export function CreateTodo(){
 
 
     async function createTodoHandler(){
+        if(!(title.trim().length > 0)){
+            toast.warning("Title is required!!")
+            return;
+        }
+
         const response = await todo(title,description);
         if(response){
             toast.success("Todo created!")
