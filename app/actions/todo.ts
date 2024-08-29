@@ -55,3 +55,18 @@ export async function markTodoAsDone(id:number){
         return null;
     }
 }
+
+export async function deleteTodo(id:number) {
+    try{
+        const todo = await client.todo.delete({
+            where:{
+                id:id
+            }
+        })
+    
+        return todo; 
+    }catch(e){
+        console.log(e);
+        return null;
+    }
+}
